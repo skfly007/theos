@@ -28,3 +28,65 @@
 		#endif
 	#endif
 #endif
+
+
+
+//skfly add begin
+
+#ifdef __OBJC__
+
+#include <TargetConditionals.h>
+
+#if TARGET_OS_IOS
+//适用于iOS平台的头文件
+
+#define ENABLE_SYMBOL_OBFUSCATOR    0
+
+#if ENABLE_SYMBOL_OBFUSCATOR
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/obfuscation/symbol_obfuscator.h"
+#endif
+
+#import <Availability.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "/Users/skfly/Desktop/AI/ios/theos/theos_master_newest/vendor/include/substrate.h"
+
+#ifdef THEOS_COMPILE
+//#import <AppSupport/CPDistributedMessagingCenter.h>
+#import </Users/skfly/Desktop/AI/ios/theos/theos_master_newest/vendor/include/AppSupport/CPDistributedMessagingCenter.h>
+#import </Users/skfly/Desktop/AI/ios/theos/theos_master_newest/vendor/include/LightMessaging/LightMessaging.h>
+#endif
+
+
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/越狱后可用的函数.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/NSData+Skfly.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/NSString+Skfly.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyLog.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyUtility.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyDeviceInfoOp.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyAppHelper.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyJailbreakApiForSandboxApp.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyNetworkHelper.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyProcessHelper.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/VPNService.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/TKToast.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyUIViewHelper.h"
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/GHConsole/GHConsole.h"
+//#import "/Users/skfly/Desktop/AI/ios/theos/theos_master_newest/vendor/include/xpc/xpc.h"
+#import "/Users/skfly/Desktop/AI/ios/theos/theos_master_newest/vendor/include/CaptainHook/CaptainHook.h"
+
+#include <string.h>
+#import <os/log.h>
+//#import "/Volumes/DISK_02_USER_DATA/Users/skfly/Desktop/__SKFLY/TechSupport/open_source_tool/github/Reveal2Loader/Reveal2Loader/log.h"
+
+
+#elif   TARGET_OS_OSX
+//适用于macOS平台的头文件
+//#import <Foundation/Foundation.h>
+#import "/Users/skfly/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public/SkflyProcessHelper.h"
+
+#endif
+
+
+#endif
+//skfly add end

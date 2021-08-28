@@ -1,3 +1,45 @@
+
+###################################################################################################
+#skfly add begin
+
+#该部分必须在common.mk被包含之前执行
+
+#目录常量定义
+SKFLY_CURRENT_USER_ROOT_PATH=/Users/skfly
+SKFLY_COMMON_SUPPORT_PATH=$(SKFLY_CURRENT_USER_ROOT_PATH)/Desktop/workspace/practice/a_qiu/theos_master_20200110/common/SkflyCommonSupport/SkflyCommonSupport/public
+
+
+THEOS_DEVICE_IP = 192.168.50.61
+THEOS_DEVICE_PORT = 22
+#ARCHS = armv7 arm64
+ARCHS = arm64
+
+
+#指定sdk目录
+#/makefiles//targets/_common/darwin_tail.mk:SYSROOT ?= $(or $(wildcard $(THEOS_SDKS_PATH)/$(_THEOS_TARGET_PLATFORM_SDK_NAME)$(_THEOS_TARGET_SDK_VERSION).sdk),$(wildcard $(THEOS_PLATFORM_SDK_ROOT)/Platforms/$(_THEOS_TARGET_PLATFORM_SDK_NAME).platform/Developer/SDKs/$(_THEOS_TARGET_PLATFORM_SDK_NAME)$(_THEOS_TARGET_SDK_VERSION).sdk))
+#/makefiles//targets/_common/darwin_tail.mk:ISYSROOT ?= $(or $(wildcard $(THEOS_SDKS_PATH)/$(_THEOS_TARGET_PLATFORM_SDK_NAME)$(_THEOS_TARGET_INCLUDE_SDK_VERSION).sdk),$(wildcard $(THEOS_PLATFORM_SDK_ROOT)/Platforms/$(_THEOS_TARGET_PLATFORM_SDK_NAME).platform/Developer/SDKs/$(_THEOS_TARGET_PLATFORM_SDK_NAME)$(_THEOS_TARGET_INCLUDE_SDK_VERSION).sdk),$(SYSROOT))
+#/makefiles//targets/_common/darwin_tail.mk:_THEOS_TARGET_CFLAGS := -isysroot "$(ISYSROOT)" $(VERSIONFLAGS) $(MODULESFLAGS) $(_THEOS_TARGET_CC_CFLAGS)
+#/makefiles//targets/_common/darwin_tail.mk:_THEOS_TARGET_LDFLAGS := -isysroot "$(SYSROOT)" $(VERSIONFLAGS) $(LEGACYFLAGS) -multiply_defined suppress $(_TARGET_LIBCPP_LDFLAGS)
+
+#Xcode提供的sdk的优先级要高于$THEOS/sdk的优先级, 所以直接手动定义sdk目录        ISYSROOT的值跟随SYSROOT, 所以无需再定义
+#ISYSROOT=$(SKFLY_CURRENT_USER_ROOT_PATH)/Desktop/__SKFLY/AI/theos/theos_master_20200110/sdks/iPhoneOS12.2.sdk
+#SYSROOT=$(SKFLY_CURRENT_USER_ROOT_PATH)/Desktop/__SKFLY/AI/theos/theos_master_20200110/sdks/iPhoneOS12.2.sdk
+ISYSROOT=$(THEOS)/sdks/iPhoneOS12.2.sdk
+SYSROOT=$(THEOS)/sdks/iPhoneOS12.2.sdk
+
+#THEOS_SDKS_PATH = $(SKFLY_CURRENT_USER_ROOT_PATH)/Desktop/__SKFLY/AI/theos/theos_master_20200110/sdks        #THEOS系统已经定义过,无需定义
+#_THEOS_TARGET_PLATFORM_SDK_NAME = iPhoneOS            #THEOS系统自动定义, 无需定义
+#THEOS系统自动定义为最新
+#_THEOS_TARGET_INCLUDE_SDK_VERSION=10.3
+
+#压缩包打包方式. 默认为lzma,但是macos10.15不支持该算法了
+THEOS_PLATFORM_DEB_COMPRESSION_TYPE=gzip
+
+
+#skfly add end
+###########################################################################################
+
+
 all::
 
 # common.mk should only be included once. Throw an error if already included in this makefile.
